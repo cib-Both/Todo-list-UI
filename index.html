@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List App</title>
+  <title>Modern Todo List</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="background-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  
   <div class="container">
     <div class="todo-app">
-      <h2>To-Do List</h2>
-      <div class="row">
-        <input type="text" id="input-box" placeholder="Add your List">
-        <button onclick="addTask()">Add</button>
+      <div class="header">
+        <div class="header-content">
+          <div class="icon-wrapper">
+            <svg class="todo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h1>My Tasks</h1>
+        </div>
+        <div class="task-stats" id="task-stats">
+          <span class="stat-item">
+            <span class="stat-number" id="total-tasks">0</span>
+            <span class="stat-label">Total</span>
+          </span>
+          <span class="stat-divider"></span>
+          <span class="stat-item">
+            <span class="stat-number" id="completed-tasks">0</span>
+            <span class="stat-label">Done</span>
+          </span>
+        </div>
       </div>
-      <ul id="list-container">
-        <!-- <li class="checked">Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li> -->
-      </ul>
-    </div> 
+
+      <div class="input-section">
+        <div class="input-wrapper">
+          <input type="text" id="input-box" placeholder="What needs to be done?" autocomplete="off">
+          <button class="add-btn" onclick="addTask()">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Add Task</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tasks-section">
+        <ul id="list-container" class="task-list">
+          <!-- Tasks will be added here dynamically -->
+        </ul>
+        <div class="empty-state" id="empty-state">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p>No tasks yet. Add one to get started!</p>
+        </div>
+      </div>
+    </div>
   </div>
+  
   <script src="script.js"></script>
 </body>
 </html> 
